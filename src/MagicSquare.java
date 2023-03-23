@@ -8,7 +8,6 @@ public class MagicSquare {
     public static int calculateCheckSum(int[][] array2d) {
         int sum = 0;
         for (int i : array2d[0]) sum += i;
-
         return (sum);
     }
 
@@ -25,9 +24,7 @@ public class MagicSquare {
         int sum = 0;
         for (int[] ints : array2d) {
             for (int a : ints) sum += a;
-            if (sum != checkSum) {
-                return(false);
-            }
+            if (sum != checkSum) return(false);
             sum = 0;
         }
         return(true);
@@ -42,12 +39,8 @@ public class MagicSquare {
     public static boolean magicColumns(int[][] array2d, int checkSum) {
         int sum = 0;
         for (int i = 0; i < array2d[0].length; i++){
-            for (int[] ints : array2d) {
-                sum += ints[i];
-            }
-            if (sum != checkSum) {
-                return(false);
-            }
+            for (int[] ints : array2d) sum += ints[i];
+            if (sum != checkSum) return(false);
             sum = 0;
         }
         return(true);
@@ -60,8 +53,7 @@ public class MagicSquare {
      * @return whether the sum of each of the two main diagonals is equal to checkSum or not.
      */
     public static boolean magicDiagonals(int[][] array2d, int checkSum) {
-        int sum1 = 0;
-        int sum2 = 0;
+        int sum1 = 0, sum2 = 0;
         for (int i = 0; i < array2d.length; i++){
             sum1 += array2d[i][array2d.length - 1 - i];
             sum2 += array2d[i][i];
